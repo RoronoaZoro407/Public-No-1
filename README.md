@@ -1,5 +1,5 @@
 # Public-No-1- Youtube video downloader
-Note: This a self help tool  made for personal purpose, so This is not for Commercial Purpose. Support the creator and dont gent into unethical activities.
+Note: This a self help tool  made for personal purpose, so This is not for Commercial Purpose. Support the creator and dont do unethical activities.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 This tool aims to Download YouTube videos at the highest available quality possible(the quality depends upon the maximum video quality available on youtube and the downloads are mp4 format and 99% 320kbps bit rate audio)
