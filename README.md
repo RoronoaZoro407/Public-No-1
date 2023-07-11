@@ -6,7 +6,9 @@ This tool aims to Download YouTube videos at the highest available quality possi
 this tool runs on python3, flask framework and pytube module, so its neccessry to pre install them, for python3 you can download and install it from their official website and for flask you need to open and run as administrator the command prompt and use he following commands to install it:
 
 for installing flasK : pip install flask
+
 ~
+
 for installing pytube: pip install pytube
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
