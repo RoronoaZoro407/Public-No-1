@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/body.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/search_input.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/download_button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/download_progress.css') }}">
+
+
+</head>
+<body>
+<div class="container mx-auto p-8 text-center">
+    <h1 class="text-3xl font-bold mb-8">YouTube Video Downloader</h1>
+    <input id="video-url" class="search-input" type="text" placeholder="Video URL">
+    <button id="clear-button" class="clear-button">&#10005;</button>
+    <button id="download-btn" class="download-button">Download</button>
+    <p id="download-progress" class="text-sm mt-4"></p>
+    <p id="download-result" class="text-sm mt-4"></p>
+        <!-- Include main.js -->
+    <script src="{{ url_for('static', filename='Js/backend.js') }}"></script>
+<!-- Include clear-button.js -->
+    <script src="{{ url_for('static', filename='Js/clear_button.js') }}"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Video Downloader</title>
+    <style>
+        body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("your-background-image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: rgba(0, 0, 0, 0.3); /* 30% transparency */
+}
+
+.container {
+    max-width: 500px;
+    margin: 10% auto;
+    padding: 30px;
+    text-align: center;
+    background-color: #f5d3d3;
+    border-radius: 10px;
+    
+}
+
+h1 {
+    color: #6f42c1;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.form-container {
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #371141;
+    box-shadow: 0 0 5px rgba(238, 111, 255, 0.1);
+}
+
+button {
+    padding: 12px 24px;
+    background-color: #6f42c1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 45px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #9160db;
+}
+
+#download-result {
+    margin-top: 20px;
+}
+    </style>
+    <script>
+        window.onload = function() {
+            // Set the default window size to maximize mode
+            window.moveTo(0, 0);
+            window.resizeTo(screen.width, screen.height);
+            
+            // Disable scrolling
+            document.body.style.overflow = "hidden";
+        };
+    </script>
+</head>
+<body>
+      <div class="container">
+        <h1>Video Downloader</h1>
+        <div id="download-form">
+            <input type="text" id="video-url" placeholder="Enter YouTube Video URL" required>
+            <button id="download-btn">Download</button>
+        </div>
+        <div id="download-result"></div>
+    </div>
+    <script>
+    document.getElementById("download-btn").addEventListener("click", function() {
+            var videoUrl = document.getElementById("video-url").value;
+            if (videoUrl !== "") {
+                downloadVideo(videoUrl);
+            }
+        });
+
+        function downloadVideo(url) {
+    var downloadResult = document.getElementById("download-result");
+    downloadResult.innerHTML = "Downloading...";
+
+    fetch('/download', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ url: url })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            downloadResult.innerHTML = "Download completed! Filename: " + data.filename;
+        } else {
+            downloadResult.innerHTML = "Error: " + data.message;
+        }
+    })
+    .catch(error => {
+        downloadResult.innerHTML = "Error: " + error;
+    });
+}
+</script>
+</body>
+</html>
